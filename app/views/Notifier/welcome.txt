@@ -1,0 +1,12 @@
+Dear ${user.email}, 
+
+Please confirm your registration by clicking the link below:
+
+ @@{Application.confirmRegistration(user.needConfirmation)}
+
+
+Please note that this link can be used  only once.
+
+Thank you!
+
+The BluePrint Team

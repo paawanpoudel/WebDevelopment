@@ -1,0 +1,91 @@
+#{extends 'index.html' /}
+#{set title:'Query Genes' /}  
+          
+<h1>Tools</h1>              
+<br>
+		<!--	<input type="text" name= "pdbID" id="pdbID"/> -->		
+<legend>  This page provides you with an oppurtunity to create heat maps, river plots and bar plots from the progenitors dataset. <br><br>  </legend>            
+          
+  
+         
+          				                    
+     
+       	
+
+<br>
+<h2> Query genes or transcripts	</h2>       	
+<br>   
+
+<legend>  
+
+	Insert your list of HGNC or Ensembl gene(s) or transcript(s) indentifiers.
+<!--	A single gene can not be displayed in a heat map. Bar plot only plots single gene.
+	A maximum of 12 genes are allowed in a river plot.
+	<br>	<br>    
+	Select the corresponding case and your favourite plot.
+-->
+	<br>
+	<br>
+
+</legend>  
+
+<form id="multiple_gene_transcript_input" action="@{Admin.createRiverPlots()}" method="GET">
+
+	     		      		
+               #{field 'g_t_name'}	
+	       <label for="pdbID" class="block">  </label> <br>			
+	       <textarea id="g_t_List" name="gene_List" cols="25" rows="25" style="min-height:400px !important; min-width:250px">ITGA2B</textarea>
+               #{/field}         		
+                </p> 
+	        <br> <br> 
+         	
+                   
+       	
+                #{field 'plot_type'}
+		<legend> <h3> Plot type </h3> </legend> <br>
+		
+		          
+                <input type= "radio" name="plot_type" value="b" #{if field.value=='b'}checked="checked"#{/if} /> Bar plot &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Available for a single gene or transcript. </p>    
+	<!--	<p class="light">
+                Available for a single gene or transcript.
+                </p>
+	!-->
+		<input type= "radio" name="plot_type" checked value="r" #{if field.value=='r'}checked="checked"#{/if} /> River plot&nbsp;&nbsp;&nbsp;&nbsp;Available for a maximum of 12 genes or transcripts.</p>
+                <input type= "radio" name="plot_type" value="h" #{if field.value=='h'}checked="checked"#{/if} /> Heat map&nbsp;&nbsp;&nbsp;&nbsp;Available for genes or transcripts. </p>   
+
+          
+         
+                #{/field} 
+              <!--  <legend> <h3> <br>Annotation type </h3> </legend> <br>
+		<input type= "radio" name="query_type" checked value="g"#{if field.value=='g'}checked="checked"#{/if}  /> Gene  </p>
+      		<input type= "radio" name="query_type" value="t" #{if field.value=='t'}checked="checked"#{/if} / >  Transcript  </p>
+	         -->                   
+                <legend> <h3> <br><br> Optional settings for heat maps </h3> </legend> <br>     		
+         			
+		  <legend> <h4> Annotation type </h4> </legend> 
+		For a single gene, only the heat map of its transcripts is available. No heat map is available for a single transcript.<br><br>
+                <input type= "radio" name="query_type" checked value="g"#{if field.value=='g'}checked="checked"#{/if}  /> Gene  </p>
+                <input type= "radio" name="query_type" value="t" #{if field.value=='t'}checked="checked"#{/if} / >  Transcript  </p>
+		        	
+                
+                <legend> <h4> <br> Cluster by row expression</h4> </legend> <br> 
+        	<input type= "radio" name="rowv" value="T" #{if field.value=='T'}checked="checked"#{/if} /> Yes </p> 	
+         	<input type= "radio" name="rowv" checked value="F" #{if field.value=='F'}checked="checked"#{/if} /> No </p> 
+               
+         	<legend> <h4> <br>Scale and center expression values </h4> </legend> <br> 
+		<input type= "radio" name="scale" value="row" #{if field.value=='row'}checked="checked"#{/if} /> Yes </p>	
+                <input type= "radio" name="scale" checked value="none" #{if field.value=='none'}checked="checked"#{/if} /> No </p>	      
+                <br> <br>
+		<button type="submit" id="send">submit</button>
+      		</p>
+         		
+        
+</form>
+
+	   
+
+          
+           
+
+
+</html>

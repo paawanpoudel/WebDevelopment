@@ -1,0 +1,10 @@
+CompilerOracle: exclude jregex/Pretokenizer.next
+Listening for transport dt_socket at address: 8000
+12:32:32,863 INFO  ~ Starting /home/pp376/NetBeansProjects/blueprint
+12:32:32,867 INFO  ~ Module secure is available (/usr/local/play-1.2.7/modules/secure)
+12:32:32,867 ERROR ~ Module crud will not be loaded because /usr/share/play_framework/pplay/modules/crud does not exist
+12:32:33,608 WARN  ~ You're running Play! in DEV mode
+12:32:33,698 INFO  ~ Listening for HTTP at /127.0.0.1:9500 (Waiting a first request to start) ...
+~ Server is up and running
+12:32:44,500 INFO  ~ Connected to jdbc:mysql://localhost/BLUEPRINT?useUnicode=yes&characterEncoding=UTF-8&connectionCollation=utf8_general_ci
+12:32:45,284 INFO  ~ Application 'blueprint_gene_expression' is now started !

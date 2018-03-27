@@ -1,0 +1,40 @@
+#{extends 'authenticate.html' /}
+#{set title:'Welcome' /} 
+    <body>
+	
+		<div id="main">
+	
+			<div id="header">
+				#{if connected}
+					<p>
+					
+						(<a href="@{Application.logout}">Logout</a>)
+					</p>
+				#{/if}
+				#{else}
+					
+					<strong>	Please <a href="@{Application.signup}">register</a> to use the Blueprint Progenitors web application or  login if you already have an account.
+ <!-- 	Or <br> if you already have an account, just <a href="@{Application.login}">Login</a>. --!>
+					</strong>
+				#{/else}
+		
+			<br>	
+			</div>
+			
+			<div id="content">
+				#{if flash?.error}
+					<div class="error">${flash.error}</div>
+				#{/if}
+				
+				#{if flash?.success}
+					<div class="success">${flash.success}</div>
+				#{/if}
+				
+	       		#{doLayout /}
+			</div>
+			
+		
+		</div>
+		
+    </body>
+</html>

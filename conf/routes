@@ -1,0 +1,42 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+# Home
+GET		/   Admin.index
+*      /                module:secure
+# Registration/Authentication 
+GET		/signup	 Application.signup
+POST	/signup		 Application.register
+GET		/login	 Application.login
+POST	/login		 Application.authenticate
+GET		/logout	 Application.logout
+GET		/signup/{uuid}     Application.confirmRegistration
+GET		/confirmation/{uuid}  Application.resendConfirmation
+POST    /register                               Application.saveUser
+
+
+
+# Users
+GET		/users		Admin.index
+GET		/profile	Admin.index
+#GET		/users/{<[0-9]+>id}	Admin.index
+
+
+#GET     /                                       Admin.login
+
+#POST    /login                                  Admin.login
+#GET     /logout                                 Admin.logout
+#GET     /                                        Admin.index
+
+# Ignore favicon requests
+GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+#*       /                                       module:secure
+
+# Catch all
+*       /{controller}/{action}                  {controller}.{action}
+
